@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: récupérer le code
+        uses: actions/checkout@v4
+      - name: installation des nodes_modules
+        run: npm ci
       - name: run test
         run: npm run test
       - name: run build
