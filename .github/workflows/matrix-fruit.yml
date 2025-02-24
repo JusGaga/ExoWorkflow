@@ -14,4 +14,4 @@ jobs:
 
     steps:
       - name: Afficher la phrase
-        run: echo "${{ matrix.name }} mange une ${{ matrix.fruit }}, et il adore ça !"
+        run: echo "${{ matrix.name }} mange une ${{ matrix.fruit }}"
