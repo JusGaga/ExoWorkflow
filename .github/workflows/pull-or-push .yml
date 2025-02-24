@@ -1,0 +1,29 @@
+name: Pull or Push
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  PUSH_MESSAGE: "C'est un push !"
+  PR_MESSAGE: "C'est une pull request !"
+
+jobs:
+  detect-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Detect Event Type
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            echo "$PUSH_MESSAGE"
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "$PR_MESSAGE"
+          fi
