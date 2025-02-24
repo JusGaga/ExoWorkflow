@@ -1,0 +1,18 @@
+name: Workflows Liés
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Message du Job 1
+        run: echo "Premier job exécuté manuellement"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Message du Job 2
+        run: echo "Second job exécuté après le premier"

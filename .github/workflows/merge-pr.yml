@@ -1,0 +1,13 @@
+name: Merge PR
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verif si la Pr est mergée
+        if: github.event.pull_request.merged == true
+        run: echo "Pull request mergée !"
